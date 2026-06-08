@@ -1,3 +1,5 @@
 .env
 
 api_configuration.ipynb
+
+*.zip
