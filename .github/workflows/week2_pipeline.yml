@@ -1,0 +1,31 @@
+name: Week2 Data Pipeline
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  run-pipeline:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Setup Python
+      uses: actions/setup-python@v5
+
+      with:
+        python-version: '3.12'
+
+    - name: Install Dependencies
+      run: |
+        pip install pandas
+        pip install numpy
+        pip install yfinance
+
+    - name: Run Pipeline
+      run: |
+        python Week2/scripts/pipeline.py
