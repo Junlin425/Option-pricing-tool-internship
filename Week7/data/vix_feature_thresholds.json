@@ -1,0 +1,25 @@
+{
+  "regime_low_q33": 16.70829978942871,
+  "regime_high_q67": 23.233899631500247,
+  "spike_return_q95": 0.1539944540293614,
+  "threshold_source": "train_only",
+  "rolling_method": "current_and_past_only",
+  "rolling_window": 20,
+  "five_day_lag": 5,
+  "regime_mapping": {
+    "0": "Low",
+    "1": "Normal",
+    "2": "High"
+  },
+  "model_features": [
+    "VIX_Close",
+    "VIX_Return",
+    "VIX_5D_Change",
+    "VIX_20D_ZScore",
+    "VIX_Regime",
+    "VIX_Spike"
+  ],
+  "training_start_after_warmup": "2018-02-28",
+  "training_end": "2022-11-30",
+  "warmup_rows_removed_from_train": 19
+}

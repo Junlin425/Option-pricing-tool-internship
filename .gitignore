@@ -1,5 +1,18 @@
 .env
+.env.*
+!.env.example
+.streamlit/secrets.toml
 
+.venv/
+Week7/.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+.vscode/
+output/
+tmp/
 api_configuration.ipynb
-
 *.zip
+
+Week7/pricing_tool/.cache/

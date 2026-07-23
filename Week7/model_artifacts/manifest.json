@@ -1,0 +1,193 @@
+{
+  "assumptions": {
+    "annualization_days": 252,
+    "maturity_years": 1.0,
+    "option_type": "European Call",
+    "strike": "ATM K=S",
+    "underlying": "JPM"
+  },
+  "date_ranges": {
+    "test": {
+      "end": "2024-12-30",
+      "rows": 261,
+      "start": "2023-12-15"
+    },
+    "train": {
+      "end": "2022-11-30",
+      "rows": 1199,
+      "start": "2018-02-28"
+    },
+    "validation": {
+      "end": "2023-12-14",
+      "rows": 261,
+      "start": "2022-12-01"
+    }
+  },
+  "feature_ranges": {
+    "linear": {
+      "Close": {
+        "max": 171.77999877929688,
+        "min": 79.02999877929688
+      },
+      "RollingVol20": {
+        "max": 0.0860933373813566,
+        "min": 0.0046853864180124
+      },
+      "Treasury_Yield": {
+        "max": 4.25,
+        "min": 0.52
+      },
+      "VIX_20D_ZScore": {
+        "max": 3.980437904517077,
+        "min": -2.954058523485634
+      },
+      "VIX_5D_Change": {
+        "max": 1.516709433891954,
+        "min": -0.3906097004380559
+      },
+      "VIX_Close": {
+        "max": 82.69000244140625,
+        "min": 10.850000381469728
+      },
+      "VIX_Regime": {
+        "max": 2.0,
+        "min": 0.0
+      },
+      "VIX_Return": {
+        "max": 0.4802140945749818,
+        "min": -0.2662275386386179
+      },
+      "VIX_Spike": {
+        "max": 1.0,
+        "min": 0.0
+      },
+      "VolumeChange": {
+        "max": 2.8073099228857306,
+        "min": -0.7218430262068228
+      }
+    },
+    "lstm": {
+      "MA20_Ratio": {
+        "max": 0.18682718476729399,
+        "min": -0.26711722738374344
+      },
+      "MA5_Ratio": {
+        "max": 0.11402615555111284,
+        "min": -0.15408290851802076
+      },
+      "RateMomentum": {
+        "max": 0.5100000000000002,
+        "min": -0.56
+      },
+      "Return": {
+        "max": 0.1656203055060559,
+        "min": -0.1621057896481723
+      },
+      "RollingVol20": {
+        "max": 0.0860933373813566,
+        "min": 0.0046853864180124
+      },
+      "Treasury_Yield": {
+        "max": 4.25,
+        "min": 0.52
+      },
+      "VIX_20D_ZScore": {
+        "max": 3.980437904517077,
+        "min": -2.954058523485634
+      },
+      "VIX_5D_Change": {
+        "max": 1.516709433891954,
+        "min": -0.3906097004380559
+      },
+      "VIX_Close": {
+        "max": 82.69000244140625,
+        "min": 10.850000381469728
+      },
+      "VIX_Regime": {
+        "max": 2.0,
+        "min": 0.0
+      },
+      "VIX_Return": {
+        "max": 0.4802140945749818,
+        "min": -0.2662275386386179
+      },
+      "VIX_Spike": {
+        "max": 1.0,
+        "min": 0.0
+      },
+      "VolumeChange": {
+        "max": 2.8073099228857306,
+        "min": -0.7218430262068228
+      }
+    }
+  },
+  "hashes": {
+    "linear_all_vix.joblib": "e2e481600a59044c1f1b773ef1afc544b1baed7ba86399e0ba56a694fc67287b",
+    "lstm_all_vix.keras": "829d8702696302e91883b8363e01f9b98236eae7dd8a8e0c58004683bb0af594",
+    "lstm_delta_scaler.joblib": "d87e6e07c5b29a8a4727e5b002879a5f72f24b8c21b72b742c8c73a64ee13a81",
+    "lstm_x_scaler.joblib": "3a4dbf968557fc2a26c93844968ea86deb7096c348f7a44c5dab0d9aecbe9677"
+  },
+  "linear_features": [
+    "Close",
+    "Treasury_Yield",
+    "RollingVol20",
+    "VolumeChange",
+    "VIX_Close",
+    "VIX_Return",
+    "VIX_5D_Change",
+    "VIX_20D_ZScore",
+    "VIX_Regime",
+    "VIX_Spike"
+  ],
+  "lstm_features": [
+    "RollingVol20",
+    "Return",
+    "MA5_Ratio",
+    "MA20_Ratio",
+    "VolumeChange",
+    "RateMomentum",
+    "Treasury_Yield",
+    "VIX_Close",
+    "VIX_Return",
+    "VIX_5D_Change",
+    "VIX_20D_ZScore",
+    "VIX_Regime",
+    "VIX_Spike"
+  ],
+  "metrics": {
+    "LSTM + BSM": {
+      "Best_Validation_Loss": 0.5308459401130676,
+      "Epochs": 22,
+      "Test_MAE": 0.7932707272501931,
+      "Test_R2": 0.9315535466092515,
+      "Test_RMSE": 2.363683860280438,
+      "Validation_MAE": 0.43673560649150206,
+      "Validation_R2": 0.9220875962495196,
+      "Validation_RMSE": 0.8658823756560654
+    },
+    "Linear Regression": {
+      "Test_MAE": 2.7593763777721545,
+      "Test_R2": 0.7731238353001869,
+      "Test_RMSE": 4.303366659645945,
+      "Validation_MAE": 0.887774307278264,
+      "Validation_R2": 0.8806731660552983,
+      "Validation_RMSE": 1.0715801428452516
+    }
+  },
+  "schema_version": 1,
+  "seed": 42,
+  "targets": {
+    "linear": "CallPrice",
+    "lstm": "one-day change in RollingVol20"
+  },
+  "variant": "All VIX Features",
+  "versions": {
+    "joblib": "1.5.3",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "python": "3.12.13",
+    "scikit_learn": "1.9.0",
+    "tensorflow": "2.20.0"
+  },
+  "window_size": 20
+}
