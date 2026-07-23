@@ -1,5 +1,8 @@
 import unittest
+import os
 from pathlib import Path
+import subprocess
+import sys
 from unittest.mock import patch
 
 import pandas as pd
@@ -15,6 +18,25 @@ APP_PATH = Path(__file__).resolve().parents[1] / "app.py"
 
 
 class PricingToolAppTests(unittest.TestCase):
+    def test_cloud_entrypoint_can_import_project_package(self):
+        environment = os.environ.copy()
+        environment.pop("PYTHONPATH", None)
+        completed = subprocess.run(
+            [sys.executable, str(APP_PATH)],
+            cwd=APP_PATH.parent,
+            env=environment,
+            capture_output=True,
+            text=True,
+            timeout=30,
+            check=False,
+        )
+
+        self.assertEqual(
+            completed.returncode,
+            0,
+            msg=completed.stdout + completed.stderr,
+        )
+
     def test_default_page_runs_and_shows_known_prices(self):
         with patch(
             "Week7.pricing_tool.realtime_market_panel.load_realtime_market_snapshot"

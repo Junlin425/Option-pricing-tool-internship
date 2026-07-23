@@ -2,7 +2,15 @@
 
 from __future__ import annotations
 
+from pathlib import Path
+import sys
+
 import streamlit as st
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
 from Week7.pricing_tool.dashboard_panel import render_model_performance_dashboard
 from Week7.pricing_tool.dashboard_service import build_sensitivity_curves
